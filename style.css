@@ -1,0 +1,106 @@
+*{
+    font-family: Arial, Helvetica, sans-serif;
+    color:whitesmoke;
+    font-weight: lighter;
+}
+
+body{
+    height: 100%;
+    background-image: linear-gradient(to bottom, #8d6aae, #d6ab97);
+    background-attachment: fixed;
+    margin: 0;
+    background-repeat: no-repeat;
+}
+
+#navbar{
+    background-color: #6e3f98;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 85px;
+}
+
+#container-logo{
+    display: flex;
+    align-items: center;
+    flex: 0 0 auto;
+}
+
+#wclogo{
+    height: 83px;
+}
+
+#logoText{
+    height: 25px;
+}
+
+#container-search{
+    display: flex;
+    align-items: center;
+}
+
+#searchbar{
+    color:whitesmoke;
+    font-weight: 500;
+    font-size: 12pt;
+    height: 40px;
+    border-radius: 25px;
+    border-color: transparent;
+    padding:5px 30px 5px 5px;
+    margin-left: 30px;
+    background-color: #8d6aae;
+    text-align: center;
+    width: 350px;
+    max-width: 400px;
+}
+
+#searchbar:focus{
+    border:white 2px solid;
+    outline: white;
+}
+
+#searchbar::placeholder{
+    color:whitesmoke;
+    font-weight: 500;
+    font-size: 12pt;
+}
+
+#magGlass{
+    height: 22px;
+    filter:invert(100%);
+    margin-left: 10px;
+    margin-left: -40px;
+}
+
+#menus{
+    width:300px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-left: 10px;
+}
+
+#options{
+    display: flex;
+    align-items: center;
+    margin-right: 30px;
+}
+
+#globe{
+    height: 55px;
+}
+
+.noWrap{
+    white-space: nowrap;
+}
+
+.bar{
+    height: 3px;
+    width: 28px;
+    margin-bottom: 5px;
+    background-color: white;
+    border-radius: 10px;
+    position: relative;
+    transition: all 500ms ease;
+}
+
