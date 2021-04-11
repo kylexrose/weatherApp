@@ -2,7 +2,7 @@ let menuOpen = false;
 let optionsOpen = false;
 let temperatureUnit = "f";
 let last;
-generateOptionsMenu();
+
 
 const tempFButton = document.querySelector("#f");
 const tempCButton = document.querySelector("#c");
@@ -85,11 +85,11 @@ function displayPage(data){
     const lowTemp =`${Math.round(data.forecast.forecastday[0].day[`mintemp_${temperatureUnit}`])}&deg;`
 
     const condition = data.current.condition.text;
-    console.log(data)
+    console.log(condition)
     document.querySelector("#location").innerHTML = `${location} Weather`;
     document.querySelector("#time").innerHTML = `As of ${time}`;
     document.querySelector("#temp").innerHTML = temp;
     document.querySelector("#desc").innerHTML = condition;
-    document.querySelector("#icon").src = data.condition.icon;
+    document.querySelector("#icon").src = data.current.condition.icon;
     document.querySelector("#highLow").innerHTML = `${hiTemp}/${lowTemp}`
 }
