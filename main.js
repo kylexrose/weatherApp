@@ -67,7 +67,7 @@ document.querySelector("#searchbar").addEventListener('keydown', (e) =>{
 })
 
 function weatherSearch(text){
-    const URL = `http://api.weatherapi.com/v1/forecast.json?key=433da0d561164743a18165557210804&q=${text}&days=10&aqi=no&alerts=no`
+    const URL = `https://api.weatherapi.com/v1/forecast.json?key=433da0d561164743a18165557210804&q=${text}&days=10&aqi=no&alerts=no`
     console.log(URL);
     fetch(URL)
         .then((res) => res.json())
