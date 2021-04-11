@@ -1,9 +1,17 @@
 let menuOpen = false;
 let optionsOpen = false;
 
+const icons = {
+    Clear: "icons/weather-clear.png",
+    "Partly cloudy": "icons/partly-cloudy.png",
+    Sunny: "icons/weather-clear.png",
+    Overcast: "icons/cloudy.png",
+    Mist : "icons/mist.png"
+}
+
 document.querySelector("#threeBars").addEventListener("click", () => {
     let barArray = document.querySelectorAll(".bar");
-
+    
     if(!menuOpen){
         barArray[0].style.top = "10px";
         barArray[0].style.transform = "rotate(45deg)";
@@ -35,3 +43,37 @@ document.querySelector("#options").addEventListener('click', () =>{
         //toggle options menu
     }
 })
+
+document.querySelector("#searchbar").addEventListener('keydown', (e) =>{
+    if(e.key === "Enter"){
+        document.querySelector("#mainSection").hidden = false;
+        weatherSearch(e.target.value)
+    }
+})
+
+function weatherSearch(text){
+    const URL = `http://api.weatherapi.com/v1/current.json?key=433da0d561164743a18165557210804&q=${text}&aqi=yes`
+
+    fetch(URL)
+        .then((res) => res.json())
+        .then((data) =>{
+            displayPage(data);
+        })
+}
+
+function displayPage(data){
+    const location = `${data.location.name}, ${data.location.region}`;
+    const time = data.current.last_updated.split(" ")[1];
+    let correctedTime;
+    const tempF = `${Math.round(data.current.temp_f)}&deg;`;
+    const tempC = `${data.current.temp_c}&deg;`;
+    //const lowTemp;
+    //const hiTemp;
+    const condition = data.current.condition.text;
+    console.log(condition)
+    document.querySelector("#location").innerHTML = `${location} Weather`;
+    document.querySelector("#time").innerHTML = `As of ${time}`;
+    document.querySelector("#temp").innerHTML = tempF;
+    document.querySelector("#desc").innerHTML = condition;
+    document.querySelector("#icon").src = icons[condition];
+}
