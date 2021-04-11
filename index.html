@@ -22,7 +22,7 @@
             <div id="menus">
                 <div id="options">
                     <img id="globe" src="./globe.png">
-                    <span class="noWrap">US&nbsp|&nbsp&deg;F&nbsp</span><span id="arrow">&nbsp&#9660;</span>
+                    <span class="noWrap">US&nbsp|&nbsp&deg;<span id="tempType">F</span>&nbsp</span><span id="arrow">&nbsp&#9660;</span>
                 </div>
                 <div id="threeBars">
                     <div id="bar1" class="bar"></div>
@@ -33,8 +33,21 @@
         </div>
     </nav>
     <div id="optionsMenu">
+        <div id="container-temp-btns">
+            <button id="f" class="tempBtn selected">&deg;F</button> | 
+            <button id="c" class="tempBtn">&deg;C</button>
+        </div>
+        <div class="accordion accordion-flush" id="mainAccordion">
+            
+        </div>
+    </div>
+    <div id="historyBar" class="secondaryNav">
 
     </div>
+    <div id="forecastBar" class="secondaryNav">
+
+    </div>
+    
     <div id="mainContent">
         <div id="mainSection" class="api-section" hidden="true">
             <div id="location" class="sectionTitle"></div>
@@ -42,18 +55,20 @@
             <div id="currentConditions">
                 <div id="currentConditionsPrimary">
                     <span id="temp"></span>
-                    <div id="desc"></div>
+                    <div id="desc" class="desc"></div>
                     <div id="rainChance"></div>
                 </div>
                 <div id="currentConditionsSecondary">
-                    <img src="./weather-clear.png" id="icon"/>
-                    <div id="highLow"></div>
+                    <img src="#" id="icon"/>
+                    <div id="highLow" class="desc"></div>
                 </div>
             </div>
         </div> 
     </div>
-      
-      <script src="main.js"></script>
-      <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
+    <script src="optionsMenu.js"></script>
+    <script src="colorScheme.js"></script>
+    <script src="functions.js"></script>
+    <script src="main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js" integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf" crossorigin="anonymous"></script>
 </body>
 </html>

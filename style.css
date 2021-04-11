@@ -1,6 +1,6 @@
 *{
     font-family: Arial, Helvetica, sans-serif;
-    color:white;
+    color:black;
     font-weight: lighter;
 }
 
@@ -93,6 +93,15 @@ body{
 
 .noWrap{
     white-space: nowrap;
+    color:white;
+}
+
+.noWrap span{
+    color:white;
+}
+
+#arrow{
+    color:white;
 }
 
 .bar{
@@ -103,6 +112,58 @@ body{
     border-radius: 10px;
     position: relative;
     transition: all 500ms ease;
+}
+
+#optionsMenu{
+    position: absolute;
+    width: 100%;
+    height: auto;
+    background-color: white;
+    opacity: 0;
+    padding: 20px 20px 20px 80px;
+}
+
+#container-temp-btns{
+    color:black;
+    font-size: 12pt;
+    float: left;
+    top: 150px;
+    width: 85px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.tempBtn{
+    color: gray;
+    border: 1px solid lightgray;
+    border-radius: 50%;
+    height: 35px;
+    width: 35px;
+}
+
+.selected{
+    background-color: blue;
+    color: white;
+}
+
+.listOfNations{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+}
+
+.secondaryNav{
+    height: 40px;
+    width: 100%;
+}
+
+#historyBar{
+    background-color: #8c65ad;
+}
+
+#forecastBar{
+    background-color: #42265b;
 }
 
 #mainContent{
@@ -129,14 +190,13 @@ body{
     flex-direction: column;
 }
 
+#mainSection *{
+    color:white;
+}
+
 #currentConditions{
     display: flex;
     justify-content: space-between;
-}
-
-#currentConditionsPrimary{
-    display: flex;
-    flex-direction: column;
 }
 
 #currentConditionsPrimary{
@@ -165,7 +225,7 @@ body{
 
 }
 
-#desc{
+.desc{
     font-size: 20pt;
     font-weight: 1000;
 }

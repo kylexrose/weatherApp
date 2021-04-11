@@ -1,5 +1,5 @@
 menuObj = {
-    AMERICAS:[
+    "AMERICAS":[
         ["Antigua and Barbuda", "English"],
         ["Argentina", "Español"],
         ["Bahamas", "English"],
@@ -38,7 +38,7 @@ menuObj = {
         ["United States", "Español"],
         ["Venezuela", "Español"]
     ],
-    AFRICA: [
+    "AFRICA": [
         ["Algeria", "العربية"],
         ["Algeria", "Français"],
         ["Angola", "Português"],
@@ -96,7 +96,7 @@ menuObj = {
         ["Tunisia", "العربية"],
         ["Uganda", "English"]
     ],
-    "ASIA PACIFIC":[
+    "ASIA PACIFIC": [
         ["Australia", "English"],
         ["Bangladesh", "বাংলা"],
         ["Brunei", "Bahasa Melayu"],
@@ -130,7 +130,7 @@ menuObj = {
         ["Vanuatu", "Français"],
         ["Vietnam", "Tiếng Việt"]
     ],
-    EUROPE: [
+    "EUROPE": [
         ["Andorra", "Català"],
         ["Andorra", "Français"],
         ["Austria", "Deutsch"],
@@ -188,4 +188,24 @@ menuObj = {
         ["Syria", "العربية"],
         ["United Arab Emirates", "العربية"]
     ]
+}
+
+function generateOptionsMenu(){
+    const menu = document.querySelector("#mainAccordion");
+    let text = "";
+    for(let region in menuObj){
+        text += `<div class="accordion-item">
+        <h2 class="accordion-header" id="flush-heading${region.split(" ").join("")}">
+          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse${region.split(" ").join("")}" aria-expanded="false" aria-controls="flush-collapse${region.split(" ").join("")}">
+            ${region}
+          </button>
+        </h2>
+        <div id="flush-collapse${region.split(" ").join("")}" class="accordion-collapse collapse" aria-labelledby="flush-heading${region.split(" ").join("")}" data-bs-parent="mainAccordion">
+          <div class="accordion-body listOfNations">`;
+          for(let arr of menuObj[region]){
+                text += `<a class="nationality">${arr[0]} | ${arr[1]}</a>`
+          }
+          text += `</div></div></div>`
+    }
+    menu.innerHTML = text;
 }
