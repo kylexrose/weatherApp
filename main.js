@@ -2,16 +2,7 @@ let menuOpen = false;
 let optionsOpen = false;
 let temperatureUnit = "f";
 let last;
-const icons = {
-    Clear: "icons/weather-clear.png",
-    "Partly cloudy": "icons/partly-cloudy.png",
-    Sunny: "icons/weather-clear.png",
-    Overcast: "icons/cloudy.png",
-    Mist: "icons/mist.png",
-    Rain: "icons/rain.png",
-    Thunderstorm: "icons/thunderstorm.png",
-    Snow: "icons/snow.png"
-}
+generateOptionsMenu();
 
 const tempFButton = document.querySelector("#f");
 const tempCButton = document.querySelector("#c");
@@ -60,7 +51,6 @@ document.querySelector("#options").addEventListener('click', () =>{
     if(!optionsOpen){
         arrow.innerHTML = "&nbsp&#9650;";
         optionsOpen = true;
-        generateOptionsMenu();
         menu.style.opacity = 1;
     }else{
         arrow.innerHTML = "&nbsp&#9660;";
@@ -100,6 +90,6 @@ function displayPage(data){
     document.querySelector("#time").innerHTML = `As of ${time}`;
     document.querySelector("#temp").innerHTML = temp;
     document.querySelector("#desc").innerHTML = condition;
-    document.querySelector("#icon").src = icons[condition];
+    document.querySelector("#icon").src = data.condition.icon;
     document.querySelector("#highLow").innerHTML = `${hiTemp}/${lowTemp}`
 }
