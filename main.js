@@ -2,6 +2,7 @@ let menuOpen = false;
 let optionsOpen = false;
 let temperatureUnit = "f";
 let last;
+generateOptionsMenu();
 
 
 const tempFButton = document.querySelector("#f");
@@ -61,14 +62,18 @@ document.querySelector("#options").addEventListener('click', () =>{
 
 document.querySelector("#searchbar").addEventListener('keydown', (e) =>{
     if(e.key === "Enter"){
-        last = e.target.value;
-        weatherSearch(e.target.value)
+        if(e.target.value.length > 0){
+            last = e.target.value;
+            weatherSearch(e.target.value)
+            e.target.value = "";
+            e.target.blur();
+        }
+        
     }
 })
 
 function weatherSearch(text){
     const URL = `https://api.weatherapi.com/v1/forecast.json?key=433da0d561164743a18165557210804&q=${text}&days=10&aqi=no&alerts=no`
-    console.log(URL);
     fetch(URL)
         .then((res) => res.json())
         .then((data) =>{
