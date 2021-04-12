@@ -190,22 +190,41 @@ menuObj = {
     ]
 }
 
+const columns = 3;
+
+
 function generateOptionsMenu(){
     const menu = document.querySelector("#mainAccordion");
     let text = "";
     for(let region in menuObj){
-        text += `<div class="accordion-item">
-        <h2 class="accordion-header" id="flush-heading${region.split(" ").join("")}">
-          <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse${region.split(" ").join("")}" aria-expanded="false" aria-controls="flush-collapse${region.split(" ").join("")}">
-            ${region}
-          </button>
-        </h2>
-        <div id="flush-collapse${region.split(" ").join("")}" class="accordion-collapse collapse" aria-labelledby="flush-heading${region.split(" ").join("")}" data-bs-parent="mainAccordion">
-          <div class="accordion-body listOfNations">`;
-          for(let arr of menuObj[region]){
-                text += `<a class="nationality">${arr[0]} | ${arr[1]}</a>`
-          }
-          text += `</div></div></div>`
+        text += 
+        `<div class="accordion-item">
+            <h2 class="accordion-header" id="flush-heading${region.split(" ").join("")}">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#flush-collapse${region.split(" ").join("")}" aria-expanded="false" aria-controls="flush-collapse${region.split(" ").join("")}">
+                    ${region}
+                </button>
+            </h2>
+            <div id="flush-collapse${region.split(" ").join("")}" class="accordion-collapse collapse" aria-labelledby="flush-heading${region.split(" ").join("")}" data-bs-parent="mainAccordion">
+                <div class="accordion-body listOfNations">`;
+        const extraRows = menuObj[region].length % columns;
+        let perColumn = Math.ceil(menuObj[region].length / columns);
+        let currentCountry = 0;
+        for(let column = 0; column < columns; column++){
+            text += `<div class="regionCol">`;
+            for(let row = 1; row < perColumn; row++){
+                text += `<a class="nationality">${menuObj[region][currentCountry][0]} | ${menuObj[region][currentCountry][1]}</a>`
+                currentCountry++;
+            }
+            if (column < extraRows){
+                text += `<a class="nationality">${menuObj[region][currentCountry][0]} | ${menuObj[region][currentCountry][1]}</a>`
+                currentCountry++;
+            }
+            text += `</div>`;
+        }
+        text += 
+            `   </div>
+            </div>
+        </div>`
     }
     menu.innerHTML = text;
 }

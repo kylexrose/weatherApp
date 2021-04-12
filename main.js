@@ -52,11 +52,11 @@ document.querySelector("#options").addEventListener('click', () =>{
     if(!optionsOpen){
         arrow.innerHTML = "&nbsp&#9650;";
         optionsOpen = true;
-        menu.style.opacity = 1;
+        menu.hidden = false;
     }else{
         arrow.innerHTML = "&nbsp&#9660;";
         optionsOpen = false;
-        menu.style.opacity = 0;
+        menu.hidden = true;
     }
 })
 
