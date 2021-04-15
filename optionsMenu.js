@@ -67,7 +67,7 @@ menuObj = {
         ["Guinea", "Français"],
         ["Guinea-Bissau", "Português"],
         ["Kenya", "English"],
-        ["Lesotho "| "English"],
+        ["Lesotho ", "English"],
         ["Liberia", "English"],
         ["Libya", "العربية"],
         ["Madagascar", "Français"],

@@ -24,7 +24,6 @@ const colors = {
 
 function changeColorScheme(scheme){
     for (let element in colors[scheme]){
-        console.log(document.querySelector(element))
         if(element === "body"){
             document.querySelector(element).style.backgroundImage = `linear-gradient(to bottom, ${colors[scheme][element][0]}, ${colors[scheme][element][1]})`;
         }else{
