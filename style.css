@@ -1,5 +1,5 @@
 *{
-    font-family: Arial, Helvetica, sans-serif;
+    font-family: 'Noto Sans JP', sans-serif;
     color:black;
     font-weight: lighter;
 }
@@ -11,6 +11,12 @@ body{
     margin: 0;
     background-repeat: no-repeat;
 }
+
+.clickable{
+    cursor: pointer;
+}
+
+/*=============================NAVBAR=====================================*/
 
 #navbar{
     background-color: #6e3f98;
@@ -168,6 +174,10 @@ body{
     cursor: pointer;
 }
 
+
+/*====================================OTHER NAV BARS=====================================*/
+
+
 .secondaryNav{
     height: 40px;
     width: 100%;
@@ -175,11 +185,102 @@ body{
 
 #historyBar{
     background-color: #8c65ad;
+    width: 100%;
+    display: flex;
+    text-align: center;
+    padding: 0px 10px;
+    overflow: hidden;
+}
+
+.historyArrow{
+    font-size: 20pt;
+    font-weight: 100;
+    color: whitesmoke;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 50px;
+    box-shadow: 0px 0px 30px black;
+
+}
+
+#historyBack{
+    border-right: 1px whitesmoke solid;
+    margin-left: -15px;
+}
+
+#historyForward{
+    border-left: 1px whitesmoke solid;
+    position: absolute;
+    right: 0%;
+}
+
+#historyBody{
+    height: 100%;
+    display: flex;
+}
+
+#historyBody *{
+    color: whitesmoke;
+}
+
+.historyTemp{
+    font-weight: 100;
+}
+
+.historyCell{
+    height: inherit;
+    width: 300px;
+    border-right: 1px whitesmoke solid;
+    display: flex;
+    align-items: center;
+}
+
+.historyCell *{
+    margin-right: 5px;
+}
+
+.historyIcon{
+    margin-left: 25px;
+    height: 30px;
+}
+
+.historyLocation *{
+    font-size: 9px;
+    font-weight: 400;
+}
+
+.historyDots{
+    font-size: 20pt;
+    position: relative;
+    margin-left: auto;
+    float: right;
 }
 
 #forecastBar{
     background-color: #42265b;
+    display: flex;
+    justify-content: space-around;
 }
+
+.forecastBarElement{
+    color: white;
+    align-items: center;
+    display: flex;
+    padding: 10px 25px ;
+}
+
+.forecastBarElement:hover, .forecastSelected{
+    border-bottom: 2px solid white;
+    padding: -3px 25px;
+    cursor: pointer;
+}
+
+#forecastArrow{
+    color:white;
+}
+
+/*===============================================MAIN CONTENT==============================================*/
 
 #mainContent{
     display: flex;
