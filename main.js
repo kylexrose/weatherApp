@@ -3,7 +3,7 @@ let optionsOpen = false;
 let temperatureUnit = "f";
 let last;
 generateOptionsMenu();
-
+changeColorScheme("default");
 
 const tempFButton = document.querySelector("#f");
 const tempCButton = document.querySelector("#c");
@@ -72,6 +72,7 @@ function displayPage(data){
     const lowTemp =`${Math.round(data.forecast.forecastday[0].day[`mintemp_${temperatureUnit}`])}&deg;`
 
     const condition = data.current.condition.text;
+    decideScheme(condition, data.current[`temp_${temperatureUnit}`], data.current.last_updated.split(" ")[1].split(":")[0]);
     console.log(condition)
     document.querySelector("#location").innerHTML = `${location} Weather`;
     document.querySelector("#time").innerHTML = `As of ${time}`;

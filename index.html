@@ -8,6 +8,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100;400&display=swap" rel="stylesheet">
     <link href="style.css" rel="stylesheet">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
     <title>Weather</title>
 </head>
 <body>
@@ -44,15 +45,13 @@
     
     <div id="menuRight"></div>
     <div id="historyBar" class="secondaryNav">
-        <div id="historyBack" class="historyArrow clickable"><</div>
+        <div id="historyBack" class="historyArrow clickable" hidden><</div>
         <div id="historyBody">
             <div class="historyCell clickable"><img class="historyIcon" src="//cdn.weatherapi.com/weather/64x64/day/113.png"/><span class="historyTemp">49&deg;</span class"forecastLocation>Budapest, Hungary<span class="historyDots">&#10247;</span></div>
             <div class="historyCell clickable"><img class="historyIcon" src="//cdn.weatherapi.com/weather/64x64/day/113.png"/><span class="historyTemp">49&deg;</span class"forecastLocation>Budapest, Germany<span class="historyDots">&#10247;</span></div>
             <div class="historyCell clickable"><img class="historyIcon" src="//cdn.weatherapi.com/weather/64x64/day/113.png"/><span class="historyTemp">49&deg;</span class"forecastLocation>Budapest, Hungary<span class="historyDots">&#10247;</span></div>
-            <div class="historyCell clickable"><img class="historyIcon" src="//cdn.weatherapi.com/weather/64x64/day/113.png"/><span class="historyTemp">49&deg;</span class"forecastLocation>Budapest, Hungary<span class="historyDots">&#10247;</span></div>
-
         </div>
-        <div id="historyForward" class="historyArrow clickable">></div>
+        <div id="historyForward" class="historyArrow clickable" hidden>></div>
     </div>
     <div id="forecastBar" class="secondaryNav">
         <div class="forecastBarElement forecastSelected" id="todayForecast">Today</div>
@@ -64,22 +63,30 @@
         <div class="forecastBarElement" id="videoForecast">Video</div>
         <div class="forecastBarElement" id="moreForecasts">More Forecasts <span id="forecastArrow">&nbsp&#9660;</span></div>
     </div>
-    <div id="mainContent">
-        <div id="mainSection" class="api-section" hidden="true">
-            <div id="location" class="sectionTitle"></div>
-            <div id="time"></div>
-            <div id="currentConditions">
-                <div id="currentConditionsPrimary">
-                    <span id="temp"></span>
-                    <div id="desc" class="desc"></div>
-                    <div id="rainChance"></div>
-                </div>
-                <div id="currentConditionsSecondary">
-                    <img src="#" id="icon"/>
-                    <div id="highLow" class="desc"></div>
-                </div>
+    <div id="websiteBody">
+        <div id="topAd" class='ad'></div>
+        <div id="content">
+            <div id="mainContent">
+                <div id="mainSection" class="api-section" hidden="true">
+                    <div id="location" class="sectionTitle"></div>
+                    <div id="time"></div>
+                    <div id="currentConditions">
+                        <div id="currentConditionsPrimary">
+                            <span id="temp"></span>
+                            <div id="desc" class="desc"></div>
+                            <div id="rainChance"></div>
+                        </div>
+                        <div id="currentConditionsSecondary">
+                            <img src="#" id="icon"/>
+                            <div id="highLow" class="desc"></div>
+                        </div>
+                    </div>
+                </div> 
             </div>
-        </div> 
+            <div id="sideContent">
+                <div id='sideAd' class="ad"></div>
+            </div>
+        </div>
     </div>
     <div></div>
     <script src="optionsMenu.js"></script>

@@ -16,24 +16,39 @@ const colors = {
     Cold: {
         "#navbar" : "#6e3f98",
         "#searchbar" : "#8c65ad",
-        "body" : ["#a88cc1", "#f7fbfc"],
+        "body" : ["#6e3f98", "#f7fbfc"],
         "#historyBar" : "#8c65ad",
         "#forecastBar" : "#42265b"
     },
-    Dark: {
+    ColdNight: {
         "#navbar" : "#113076",
         "#searchbar" : "#4a6094",
         "body" : ["#113076", "#157eba"],
         "#historyBar" : "#4a6094",
-        "#forecastBar" : "071a49"
+        "#forecastBar" : "#0b1c46"
+    },
+    WarmNight: {
+        "#navbar" : "#113076",
+        "#searchbar" : "#4a6094",
+        "body" : ["#113076", "#97469a"],
+        "#historyBar" : "#4a6094",
+        "#forecastBar" : "#0b1c46"
     }
 }
 
-function decideScheme(condition, temp, time){
-    //if 20:00 < time or time < 06:00 ---- dark theme
-    //if condition === rain or showers or precipitation ---- Rain theme
-    //if if temp < 40deg ---- cold theme
-    //else default
+function decideScheme(condition, temp, timeHour){
+    console.log(timeHour, temp)
+    if(condition.includes("ain")){
+        changeColorScheme("Rain");
+    }else if((timeHour < "05" || timeHour > "20") && temp >= 70){
+        changeColorScheme("WarmNight");
+    }else if((timeHour < "05" || timeHour > "20") && temp <= 70){
+        changeColorScheme("ColdNight");
+    }else if(temp <= 40){
+        changeColorScheme("Cold");
+    }else{
+        changeColorScheme("default");
+    }
 }
 
 function changeColorScheme(scheme){
