@@ -46,7 +46,7 @@ document.querySelector("#searchbar").addEventListener('keydown', (e) =>{
     if(e.key === "Enter"){
         if(e.target.value.length > 0){
             last = e.target.value;
-            weatherSearch(e.target.value)
+            displayPage(weatherSearch(e.target.value));
             e.target.value = "";
             e.target.blur();
         }
@@ -54,17 +54,19 @@ document.querySelector("#searchbar").addEventListener('keydown', (e) =>{
     }
 })
 
+getPastLocations();
+
 function weatherSearch(text){
     const URL = `https://api.weatherapi.com/v1/forecast.json?key=${weatherKey}&q=${text}&days=10&aqi=no&alerts=no`
     fetch(URL)
         .then((res) => res.json())
         .then((data) =>{
             displayPage(data);
-            document.querySelector("#mainSection").hidden = false;
         })
 }
 
 function displayPage(data){
+    document.querySelector("#mainSection").hidden = false;
     const location = `${data.location.name}, ${data.location.region}`;
     const time = timeConvert(data.current.last_updated.split(" ")[1]);
     const temp = `${Math.round(data.current[`temp_${temperatureUnit}`])}&deg;`;
@@ -73,11 +75,15 @@ function displayPage(data){
 
     const condition = data.current.condition.text;
     decideScheme(condition, data.current[`temp_${temperatureUnit}`], data.current.last_updated.split(" ")[1].split(":")[0]);
-    console.log(condition)
     document.querySelector("#location").innerHTML = `${location} Weather`;
     document.querySelector("#time").innerHTML = `As of ${time}`;
     document.querySelector("#temp").innerHTML = temp;
     document.querySelector("#desc").innerHTML = condition;
     document.querySelector("#icon").src = data.current.condition.icon;
     document.querySelector("#highLow").innerHTML = `${hiTemp}/${lowTemp}`
+    
+    populateForecastOverview(location, data.current.last_updated, data.forecast.forecastday[0].hour)
+    
+    setPastLocations(location);
+
 }

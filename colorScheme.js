@@ -13,21 +13,21 @@ const colors = {
         "#historyBar" : "#3a647c",
         "#forecastBar" : "#002036"
     },
-    Cold: {
+    Cloudy: {
         "#navbar" : "#6e3f98",
         "#searchbar" : "#8c65ad",
-        "body" : ["#6e3f98", "#f7fbfc"],
+        "body" : ["#6e3f98", "#d6ab98"],
         "#historyBar" : "#8c65ad",
         "#forecastBar" : "#42265b"
     },
-    ColdNight: {
+    FairNight: {
         "#navbar" : "#113076",
         "#searchbar" : "#4a6094",
         "body" : ["#113076", "#157eba"],
         "#historyBar" : "#4a6094",
         "#forecastBar" : "#0b1c46"
     },
-    WarmNight: {
+    CloudyNight: {
         "#navbar" : "#113076",
         "#searchbar" : "#4a6094",
         "body" : ["#113076", "#97469a"],
@@ -37,15 +37,14 @@ const colors = {
 }
 
 function decideScheme(condition, temp, timeHour){
-    console.log(timeHour, temp)
-    if(condition.includes("ain")){
+    if(condition.includes("ain") || condition.includes("ist")){
         changeColorScheme("Rain");
-    }else if((timeHour < "05" || timeHour > "20") && temp >= 70){
-        changeColorScheme("WarmNight");
-    }else if((timeHour < "05" || timeHour > "20") && temp <= 70){
-        changeColorScheme("ColdNight");
-    }else if(temp <= 40){
-        changeColorScheme("Cold");
+    }else if((timeHour < "05" || timeHour > "20") && !condition.includes("loud")){
+        changeColorScheme("FairNight");
+    }else if((timeHour < "05" || timeHour > "20") && condition.includes("loud")){
+        changeColorScheme("CloudyNight");
+    }else if(condition.includes("loud")){
+        changeColorScheme("Cloudy");
     }else{
         changeColorScheme("default");
     }
