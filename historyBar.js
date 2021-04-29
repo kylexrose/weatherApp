@@ -63,7 +63,10 @@ function populateHistoryBar(historyArray){
 
 function createHistoryElement(data, i){
     const historyCell = $(`<div id="${data.location.name}${data.location.region}" class="historyCell clickable"><img class="historyIcon" src="${data.current.condition.icon}"/><span class="historyTemp">${Math.round(data.current[`temp_${temperatureUnit}`])}&deg;</span>${data.location.name}, ${data.location.region}</div>`)
-    historyCell.click(() => displayPage(data));
+    historyCell.click(() => {
+        displayPage(data);
+        last = `${data.location.name}, ${data.location.region}`;
+    });
     $("#historyBody").append(historyCell);
     const dots = $('<span class="historyDots">&#10247;</span>');
     dots.click(()=> {

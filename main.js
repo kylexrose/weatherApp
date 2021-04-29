@@ -42,11 +42,11 @@ document.querySelector("#options").addEventListener('click', () =>{
     }
 })
 
-document.querySelector("#searchbar").addEventListener('keydown', (e) =>{
+$("#searchbar").keydown((e) =>{
     if(e.key === "Enter"){
         if(e.target.value.length > 0){
-            last = e.target.value;
-            displayPage(weatherSearch(e.target.value));
+            last = $('#searchbar').val();
+            weatherSearch($('#searchbar').val());
             e.target.value = "";
             e.target.blur();
         }
@@ -67,6 +67,7 @@ function weatherSearch(text){
 
 function displayPage(data){
     document.querySelector("#mainSection").hidden = false;
+    //console.log(data)
     const location = `${data.location.name}, ${data.location.region}`;
     const time = timeConvert(data.current.last_updated.split(" ")[1]);
     const temp = `${Math.round(data.current[`temp_${temperatureUnit}`])}&deg;`;
