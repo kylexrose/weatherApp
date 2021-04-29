@@ -1,6 +1,8 @@
 
 
 function populateForecastOverview(location, time, forecast){
+    $('#todayOverview').remove();
+
     $("#mainContent").append(`<div id="todayOverview" class="secondarySection">
     <h5><b>Today's Forecast for <span><b>${location}</b></span></b></h5>
     <div id="partsOfToday">
