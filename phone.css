@@ -29,7 +29,7 @@
     #container-search{
         display: flex;
         align-items: center;
-        width: 170px
+        width: 200px
     }
     
     #searchbar{
@@ -90,7 +90,7 @@
     
 
     #threeBars{
-        margin-left: 10px;
+        margin-left: 15px;
         align-items: center;
     }
     
@@ -339,9 +339,10 @@
     #mainContent{
         display: flex;
         flex-direction: column;
-        width: 90%;
+        width: 95%;
         max-width: 800px;
         padding: 0px;
+        align-self: center;
     }
     
     #sideContent{
@@ -462,6 +463,10 @@
     
     p.present div.present{
         font-weight: bolder;
+    }
+
+    p img{
+        height: 8px;
     }
     
     #nextHoursBtn{

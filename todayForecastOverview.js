@@ -20,7 +20,7 @@ function populateForecastOverview(location, time, forecast){
         element.append($(`<div>${Math.round(currentSectionForecast["temp_" + temperatureUnit])}&deg;</div>`))
         element.append($(`<img src="${currentSectionForecast.condition.icon}"/>`))
         if(extractHour(time) <= daySectionHours[section]){
-            element.append($(`<p>${currentSectionForecast.chance_of_rain}%</p>`));
+            element.append($(`<p><img src="prec.png"/>${currentSectionForecast.chance_of_rain}%</p>`));
         }else{
             element.append($(`<p>--</p>`));
         }

@@ -455,6 +455,10 @@ p.present div.present{
     font-weight: bolder;
 }
 
+p img{
+    height: 13px;
+}
+
 #nextHoursBtn{
     padding: 5px 10px;
     font-size: 10pt;
