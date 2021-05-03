@@ -1,0 +1,535 @@
+@media only screen and (max-width: 768px) {
+    *{
+        font-size: 8pt;
+    }
+    #navbar{
+        background-color: #6e3f98;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 45px;
+    }
+    
+    #container-logo{
+        display: flex;
+        align-items: center;
+        flex: 0 0 auto;
+        margin-left: 0px;
+    }
+    
+    #wclogo{
+        height: 40px;
+    }
+    
+    #logoText{
+        height: 25px;
+        display: none;
+    }
+    
+    #container-search{
+        display: flex;
+        align-items: center;
+        width: 170px
+    }
+    
+    #searchbar{
+        color:whitesmoke;
+        font-weight: 500;
+        font-size: 8pt;
+        height: 25px;
+        border-radius: 25px;
+        border-color: transparent;
+        padding:5px 30px 5px 5px;
+        margin-left: 10px;
+        background-color: #8d6aae;
+        text-align: center;
+        width: inherit;
+        max-width: inherit;
+    }
+    
+    #searchbar:focus{
+        border:white 2px solid;
+        outline: white;
+    }
+    
+    #searchbar::placeholder{
+        color:whitesmoke;
+        font-weight: 500;
+        font-size: 9pt;
+    }
+    
+    #autoComplete{
+        background-color: #caf0f8;
+        width: 210px;
+        height: auto;
+        position: absolute;
+        margin-top: 25px;
+    
+    }
+    
+    #magGlass{
+        height: 17px;
+        filter:invert(100%);
+        margin-left: -30px;
+    }
+    
+    #menus{
+        width:300px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        margin-left: 10px;
+    }
+    
+    #options{
+        display: flex;
+        align-items: center;
+        margin-right: 0px;
+    }
+
+    
+
+    #threeBars{
+        margin-left: 10px;
+        align-items: center;
+    }
+    
+    #globe{
+        height: 40px;
+    }
+    
+    .noWrap{
+        white-space: nowrap;
+        color:white;
+        display: none;
+    }
+    
+    .noWrap span{
+        color:white;
+    }
+    
+    #arrow{
+        color:white;
+        margin-left: -10px;
+    }
+    
+    .bar{
+        height: 2px;
+        width: 22px;
+        margin-bottom: 5px;
+        background-color: white;
+        border-radius: 10px;
+        position: relative;
+        transition: all 500ms ease;
+    }
+    
+    .optionsMenu{
+        position: absolute;
+        width: 100%;
+        height: auto;
+        background-color: white;
+        padding: 20px 60px 20px 20px;
+        z-index: 2;
+    }
+    
+    #container-temp-btns{
+        color:black;
+        font-size: 12pt;
+        float: left;
+        top: 150px;
+        width: 85px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    
+    .tempBtn{
+        color: gray;
+        border: 1px solid lightgray;
+        border-radius: 20%;
+        height: 25px;
+        width: 45px;
+        font-size: 9pt;
+    }
+    
+    .selected{
+        background-color: blue;
+        color: white;
+    }
+    
+    .listOfNations{
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        margin-right: 100px;
+    }
+    
+    .regionCol{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    .nationality{
+        color: black;
+        text-decoration: none;
+        margin: 7px;
+    }
+    
+    .nationality:hover{
+        color: blue;
+        cursor: pointer;
+    }
+    
+    
+    /*====================================OTHER NAV BARS=====================================*/
+    
+    
+    .secondaryNav{
+        height: 40px;
+        width: 100%;
+        display: none;
+    }
+    
+    #historyBar{
+        background-color: #8c65ad;
+        width: 100%;
+        display: none;
+        text-align: center;
+    }
+    
+    .historyArrow{
+        font-size: 20pt;
+        font-weight: 100;
+        color: whitesmoke;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        box-shadow: 0px 0px 30px black;
+        background-color: inherit;
+        z-index: 1;
+        
+    }
+    
+    #historyBack{
+        border-right: 1px whitesmoke solid;
+        float: left;
+        text-align: center;
+    }
+    
+    #historyForward{
+        border-left: 1px whitesmoke solid;
+        right: 0%;
+        float: left;
+    }
+    
+    #outerHistory{
+        float: left;
+        width: 97%;
+        overflow: hidden;
+        white-space: nowrap;
+        margin: 0px 20px;
+    }
+    
+    #historyBody{
+        height: inherit;
+        display: flex;
+        z-index: 0;
+    }
+    
+    #historyBody *{
+        color: whitesmoke;
+        z-index: 0;
+    }
+    
+    .historyCell{
+        height: inherit;
+        width: 300px;
+        border-left: 1px whitesmoke solid;
+        display: flex;
+        align-items: center;
+    }
+    
+    .historyCell *{
+        margin-right: 5px;
+    }
+    
+    .historyIcon{
+        margin-left: 25px;
+        height: 30px;
+    }
+    
+    .historyTemp{
+        font-family: 'Noto Sans JP', sans-serif;
+        font-weight: 100;
+    }
+    
+    .historyLocation *{
+        font-size: 9px;
+        font-weight: 400;
+        align-items: center;
+    }
+    
+    .historyDots{
+        font-size: 20pt;
+        position: relative;
+        margin-left: auto;
+        float: right;
+    }
+    
+    #forecastBar{
+        background-color: #42265b;
+        display: none;
+        justify-content: space-around;
+    }
+    
+    .forecastBarElement{
+        color: white;
+        align-items: center;
+        display: flex;
+        padding: 10px 25px ;
+    }
+    
+    .forecastBarElement:hover, .forecastSelected{
+        border-bottom: 2px solid white;
+        padding: -3px 25px;
+        cursor: pointer;
+    }
+    
+    #forecastArrow{
+        color:white;
+    }
+    
+    /*=========================Ads===================================================*/
+    
+    #topAd{
+        height: 100px;
+        width:97%;
+        max-width: 750px;
+        margin: 20px 5px;
+        background-color: whitesmoke;
+        align-self: center;
+        display: none;
+    }
+    
+    #sideAd{
+        height: 550px;
+        width: inherit;
+        background-color: whitesmoke;
+        border-radius: 10px;
+        display: none;
+    }
+    
+    
+    /*===============================================MAIN CONTENT==============================================*/
+    
+    
+    
+    #websiteBody{
+        display: flex;
+        flex-direction: column;
+    }
+    
+    #content{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+    }
+    
+    #mainContent{
+        display: flex;
+        flex-direction: column;
+        width: 90%;
+        max-width: 800px;
+        padding: 0px;
+    }
+    
+    #sideContent{
+        width: 350px;
+        margin-right: 15px;
+        display: none;
+        flex-direction: column;
+        float: right;
+    }
+    
+    #mainSection{
+        background-image: linear-gradient(to bottom, rgba(245, 245, 245, .15),  rgba(245, 245, 245, .15));
+        background-attachment: fixed;
+        background-repeat: no-repeat;
+        display: flex;
+        box-shadow: 0 0px 5px darkslategray;
+        flex-direction: column;
+        height: 120px
+    }
+    
+    #mainSection *{
+        color:white;
+    }
+    
+    .api-section {
+        width: inherit;
+        max-width: 900px;
+        padding:5px 20px;
+        border: 1px solid transparent;
+        border-radius: 10px;
+        margin: 0px 15px 0px;
+    }
+    
+    #currentConditions{
+        display: flex;
+        justify-content: space-between;
+    }
+    
+    #currentConditionsPrimary{
+        display: flex;
+        flex-direction: column;
+    }
+
+    #desc{
+        font-size: 17px;
+    }
+    
+    #currentConditionsSecondary{
+        position: absolute;
+        left: 60%;
+        top: 50px
+    }
+    
+    .sectionTitle{
+        font-size: 15pt;
+        font-weight: 900;
+        display: none;
+    }
+    
+    #time{
+        color: lightgray;
+        margin-bottom: 0px;
+    }
+    
+    #temp{
+        font-size: 35pt;
+    }
+    
+    .desc{
+        font-size: 20pt;
+        font-weight: 1000;
+    }
+    
+    #icon{
+        height: 70px;
+    }
+    
+    #highLow{
+        font-size: 13pt;
+    }
+    
+    /*===============================TODAY'S FORECAST OVERVIEW==================*/
+    
+    .secondarySection{
+        background-color: whitesmoke;
+        border-radius: 10px;
+        box-shadow: 0 0px 5px darkslategray;
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        margin: 15px;
+        width: inherit;
+        height: 200px;
+    }
+    
+    #partsOfToday{
+        margin: 10px 5px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+    }
+    
+    .partsOfToday{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+    
+    }
+    
+    .partsOfToday div{
+        font-size: 15pt;
+        color: blue;
+    }
+    
+    .past *{
+        color: gray !important;
+    }
+    
+    p.present div.present{
+        font-weight: bolder;
+    }
+    
+    #nextHoursBtn{
+        padding: 5px 10px;
+        font-size: 10pt;
+        width: 92px;
+        color: whitesmoke;
+        background-color: blue;
+        border-radius: 50px;
+        display: none;
+    }
+    
+    /*================================ten Day forecast=====================================*/
+    
+    #tenDayContainer{
+        height: 500px;
+        background-color: whitesmoke;
+        border-radius: 10px;
+    }
+    
+    .sectionTitle span{
+        font-size: 12pt;
+        font-weight: 100;
+    }
+    
+    .forecastContainer{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-left: 5px;
+        height: 60px;
+        border-top: 1px rgb(194, 194, 194) solid;
+        font-size: 10pt;
+    }
+    
+    .forecastContainerLeft{
+        display: flex;
+        justify-content: space-evenly;
+        align-items: center;
+        width: 350px;
+    }
+    
+    .forecastContainerRight{
+        display:flex;
+        width: 250px;
+        align-items: center;
+        justify-content: space-evenly;
+    }
+    
+    .forecastContainerRight img{
+        height:15px
+    }
+    
+    .forecastContainerDay{
+        width: 30px;
+    }
+    
+    .temps{
+        align-items: center;
+        width:50px;
+    }
+    
+    .high{
+        font-size: 20pt;
+        font-weight: 400;
+    }
+    
+    .condition{
+        width: 200px;
+    }
+  }

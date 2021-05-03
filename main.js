@@ -76,6 +76,7 @@ function weatherSearch(text){
 }
 
 function displaytodayForecast(data){
+    
     $('#mainContent').html("");
     for(let forecast of forecastVariants){
         $(`#${forecast}`).click(() => window[`display${forecast}`].apply(null, [data]))
@@ -98,6 +99,7 @@ function displaytodayForecast(data){
         </div>`);
 
     const location = `${data.location.name}, ${data.location.region}`;
+    ifPhone(data.location.name, data.location.region);
     const time = timeConvert(data.current.last_updated.split(" ")[1]);
     const temp = `${Math.round(data.current[`temp_${temperatureUnit}`])}&deg;`;
     const hiTemp = `${Math.round(data.forecast.forecastday[0].day[`maxtemp_${temperatureUnit}`])}&deg;`
