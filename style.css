@@ -463,3 +463,62 @@ p.present div.present{
     background-color: blue;
     border-radius: 50px;
 }
+
+/*================================ten Day forecast=====================================*/
+
+#tenDayContainer{
+    height: 500px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+}
+
+.sectionTitle span{
+    font-size: 12pt;
+    font-weight: 100;
+}
+
+.forecastContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-left: 5px;
+    height: 60px;
+    border-top: 1px rgb(194, 194, 194) solid;
+    font-size: 10pt;
+}
+
+.forecastContainerLeft{
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    width: 350px;
+}
+
+.forecastContainerRight{
+    display:flex;
+    width: 250px;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.forecastContainerRight img{
+    height:15px
+}
+
+.forecastContainerDay{
+    width: 30px;
+}
+
+.temps{
+    align-items: center;
+    width:50px;
+}
+
+.high{
+    font-size: 20pt;
+    font-weight: 400;
+}
+
+.condition{
+    width: 200px;
+}

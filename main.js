@@ -1,29 +1,38 @@
 let menuOpen = false;
 let optionsOpen = false;
 let temperatureUnit = "f";
-let last;
+let speedUnits = "mph";
+let last = 'Knoxville';
+const forecastVariants = ['todayForecast', 'hourlyForecast', 'tenDayForecast', 'weekendForecast', 'monthlyForecast', 'radar', 'videoForecast', 'moreForecasts'];
 generateOptionsMenu();
 changeColorScheme("default");
 
-const tempFButton = document.querySelector("#f");
-const tempCButton = document.querySelector("#c");
-const tempType = document.querySelector("#tempType");
-tempFButton.addEventListener('click', () =>{
-    temperatureUnit = "f";
-    tempType.innerHTML = "F";
+if(window.localStorage.getItem('last')){
+    last = window.localStorage.getItem('last');
     weatherSearch(last);
-    tempFButton.classList.add("selected");
-    tempCButton.classList.remove("selected");
+}
+
+const tempFButton = $("#f");
+const tempCButton = $("#c");
+const tempType = $("#tempType");
+tempFButton.click(() =>{
+    temperatureUnit = "f";
+    speedUnits = "mph";
+    tempType.html("F");
+    weatherSearch(last);
+    tempFButton.addClass("selected");
+    tempCButton.removeClass("selected");
 })
-tempCButton.addEventListener('click', () =>{
+tempCButton.click(() =>{
     temperatureUnit = "c";
-    tempType.innerHTML = "C";
-    tempCButton.classList.add("selected");
-    tempFButton.classList.remove("selected");
+    speedUnits = "kph";
+    tempType.html("C");
+    tempCButton.addClass("selected");
+    tempFButton.removeClass("selected");
     weatherSearch(last);
 })
 
-document.querySelector("#threeBars").addEventListener("click", () => {
+$("#threeBars").click(() => {
     animateBars();
 })
 
@@ -46,6 +55,7 @@ $("#searchbar").keydown((e) =>{
     if(e.key === "Enter"){
         if(e.target.value.length > 0){
             last = $('#searchbar').val();
+            window.localStorage.setItem('last', last);
             weatherSearch($('#searchbar').val());
             e.target.value = "";
             e.target.blur();
@@ -61,13 +71,32 @@ function weatherSearch(text){
     fetch(URL)
         .then((res) => res.json())
         .then((data) =>{
-            displayPage(data);
+            displaytodayForecast(data);
         })
 }
 
-function displayPage(data){
-    document.querySelector("#mainSection").hidden = false;
-    //console.log(data)
+function displaytodayForecast(data){
+    $('#mainContent').html("");
+    for(let forecast of forecastVariants){
+        $(`#${forecast}`).click(() => window[`display${forecast}`].apply(null, [data]))
+    }
+    $('#mainContent').append(
+        `<div id="mainSection" class="api-section">
+            <div id="location" class="sectionTitle"></div>
+            <div id="time"></div>
+            <div id="currentConditions">
+                <div id="currentConditionsPrimary">
+                    <span id="temp"></span>
+                    <div id="desc" class="desc"></div>
+                    <div id="rainChance"></div>
+                </div>
+                <div id="currentConditionsSecondary">
+                    <img src="#" id="icon"/>
+                    <div id="highLow" class="desc"></div>
+                </div>
+            </div>
+        </div>`);
+
     const location = `${data.location.name}, ${data.location.region}`;
     const time = timeConvert(data.current.last_updated.split(" ")[1]);
     const temp = `${Math.round(data.current[`temp_${temperatureUnit}`])}&deg;`;
@@ -76,12 +105,12 @@ function displayPage(data){
 
     const condition = data.current.condition.text;
     decideScheme(condition, data.current[`temp_${temperatureUnit}`], data.current.last_updated.split(" ")[1].split(":")[0]);
-    document.querySelector("#location").innerHTML = `${location} Weather`;
-    document.querySelector("#time").innerHTML = `As of ${time}`;
-    document.querySelector("#temp").innerHTML = temp;
-    document.querySelector("#desc").innerHTML = condition;
-    document.querySelector("#icon").src = data.current.condition.icon;
-    document.querySelector("#highLow").innerHTML = `${hiTemp}/${lowTemp}`
+    $("#location").html(`${location} Weather`);
+    $("#time").html(`As of ${time}`);
+    $("#temp").html(temp);
+    $("#desc").html(condition);
+    $("#icon").attr('src', `${data.current.condition.icon}`);
+    $("#highLow").html(`${hiTemp}/${lowTemp}`)
     
     populateForecastOverview(location, data.current.last_updated, data.forecast.forecastday[0].hour)
     

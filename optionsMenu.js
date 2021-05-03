@@ -194,7 +194,7 @@ const columns = 3;
 
 
 function generateOptionsMenu(){
-    const menu = document.querySelector("#mainAccordion");
+    const menu = $("#mainAccordion");
     let text = "";
     for(let region in menuObj){
         text += 
@@ -226,5 +226,5 @@ function generateOptionsMenu(){
             </div>
         </div>`
     }
-    menu.innerHTML = text;
+    menu.html(text);
 }
